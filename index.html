@@ -713,26 +713,80 @@
     .step-header { text-align: center; margin-bottom: 56px; }
 
     .step-flow {
-      display: flex;
-      gap: 0;
-      max-width: 900px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 44px 8px;
+      max-width: 1000px;
       margin-inline: auto;
     }
 
     .step-item {
-      flex: 1;
       text-align: center;
       position: relative;
     }
     .step-item:not(:last-child)::after {
       content: '→';
       position: absolute;
-      right: -12px;
+      right: -8px;
       top: 32px;
       color: var(--rose-lt);
-      font-size: 20px;
+      font-size: 18px;
       z-index: 1;
     }
+    /* 各行の右端（5の倍数）と最終ステップでは矢印を消す */
+    .step-item:nth-child(5n)::after { display: none; }
+    /* 最終ステップ（オファー）は強調 */
+    .step-item.step-offer .step-circle {
+      background: var(--rose);
+      border-color: var(--rose);
+    }
+    .step-item.step-offer .step-day,
+    .step-item.step-offer .step-num { color: var(--white); }
+
+    /* 予約への引き込みCTA */
+    .step-cta {
+      margin-top: 56px;
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: 40px 48px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      max-width: 720px;
+      margin-inline: auto;
+    }
+    .step-cta-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 10px;
+    }
+    .step-cta-sub {
+      font-size: 14px;
+      color: var(--brown2);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+    .btn-reserve {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--rose);
+      color: var(--white);
+      padding: 16px 40px;
+      border-radius: 40px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      box-shadow: 0 4px 16px rgba(184,151,138,.4);
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+    .btn-reserve:hover {
+      background: var(--rose-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(184,151,138,.5);
+    }
+    .step-cta-note { margin-top: 14px; font-size: 12px; color: var(--gray); }
 
     .step-circle {
       width: 64px; height: 64px;
@@ -798,7 +852,7 @@
       .reasons-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; gap: 32px; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-      .step-flow { flex-direction: column; gap: 32px; max-width: 300px; }
+      .step-flow { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; max-width: 420px; }
       .step-item:not(:last-child)::after { display: none; }
     }
 
@@ -1072,54 +1126,111 @@
   </div>
 </section>
 
-<!-- ── 5日間ステップ配信 ────────────────────────────────────────── -->
-<section class="step-section section-alt">
+<!-- ── 10ステップ配信 ───────────────────────────────────────────── -->
+<section class="step-section section-alt" id="step">
   <div class="container">
     <div class="step-header">
-      <div class="section-label">Step Mail</div>
-      <h2 class="section-title">登録後5日間、<br>役立つ情報をお届けします</h2>
+      <div class="section-label">Step Message</div>
+      <h2 class="section-title">登録後、10ステップで<br>「相談してみよう」まで寄り添います</h2>
+      <p class="section-sub" style="max-width:560px; margin-inline:auto;">
+        LINE登録後、順番にメッセージが届きます。<br>読み進めるだけで頭の中が整理され、最後に無料相談へご案内します。
+      </p>
     </div>
     <div class="step-flow">
       <div class="step-item">
         <div class="step-circle">
-          <div class="step-day">DAY</div>
+          <div class="step-day">STEP</div>
           <div class="step-num">1</div>
+        </div>
+        <div class="step-title">ごあいさつ</div>
+        <div class="step-desc">はじめまして。特典の受け取り方</div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">
+          <div class="step-day">STEP</div>
+          <div class="step-num">2</div>
         </div>
         <div class="step-title">共感</div>
         <div class="step-desc">実は、こんな状況の方がほとんどです</div>
       </div>
       <div class="step-item">
         <div class="step-circle">
-          <div class="step-day">DAY</div>
-          <div class="step-num">2</div>
+          <div class="step-day">STEP</div>
+          <div class="step-num">3</div>
         </div>
-        <div class="step-title">知識</div>
+        <div class="step-title">秘書という考え方</div>
+        <div class="step-desc">なぜ「先生」ではなく「秘書」なのか</div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">
+          <div class="step-day">STEP</div>
+          <div class="step-num">4</div>
+        </div>
+        <div class="step-title">知識①</div>
         <div class="step-desc">知らないと損する相続のルール3つ</div>
       </div>
       <div class="step-item">
         <div class="step-circle">
-          <div class="step-day">DAY</div>
-          <div class="step-num">3</div>
+          <div class="step-day">STEP</div>
+          <div class="step-num">5</div>
         </div>
-        <div class="step-title">感情</div>
-        <div class="step-desc">頑張っているあなたへ</div>
+        <div class="step-title">知識②</div>
+        <div class="step-desc">見落としがちなデジタル終活の落とし穴</div>
       </div>
       <div class="step-item">
         <div class="step-circle">
-          <div class="step-day">DAY</div>
-          <div class="step-num">4</div>
+          <div class="step-day">STEP</div>
+          <div class="step-num">6</div>
         </div>
-        <div class="step-title">信頼</div>
+        <div class="step-title">感情</div>
+        <div class="step-desc">頑張っているあなたへ。抱え込まないで</div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">
+          <div class="step-day">STEP</div>
+          <div class="step-num">7</div>
+        </div>
+        <div class="step-title">お客様の声</div>
         <div class="step-desc">実際にどんな方が来られているか</div>
       </div>
       <div class="step-item">
         <div class="step-circle">
-          <div class="step-day">DAY</div>
-          <div class="step-num">5</div>
+          <div class="step-day">STEP</div>
+          <div class="step-num">8</div>
         </div>
-        <div class="step-title">オファー</div>
-        <div class="step-desc">無料オンライン相談のご案内</div>
+        <div class="step-title">よくある誤解</div>
+        <div class="step-desc">「自分でできる」の本当の判断軸</div>
       </div>
+      <div class="step-item">
+        <div class="step-circle">
+          <div class="step-day">STEP</div>
+          <div class="step-num">9</div>
+        </div>
+        <div class="step-title">相談の流れ</div>
+        <div class="step-desc">初めてでも安心な進め方と料金の話</div>
+      </div>
+      <div class="step-item step-offer">
+        <div class="step-circle">
+          <div class="step-day">STEP</div>
+          <div class="step-num">10</div>
+        </div>
+        <div class="step-title">無料相談のご案内</div>
+        <div class="step-desc">あなたの番です。日程を選ぶだけ</div>
+      </div>
+    </div>
+
+    <!-- 新規相談予約への引き込み -->
+    <div class="step-cta">
+      <div class="step-cta-title">読み終えたら、あとは日程を選ぶだけ。</div>
+      <p class="step-cta-sub">
+        「何を話せばいいかわからない」ままで大丈夫です。<br>
+        オンラインの無料相談で、もやもやを一緒に整理しましょう。
+      </p>
+      <!-- TODO: href="#" を ProLine の予約専用URL に差し替えてください -->
+      <a href="#" class="btn-reserve" data-reservation-link="REPLACE_WITH_RESERVATION_URL">
+        <span>📅</span>新規相談を予約する（無料）
+      </a>
+      <p class="step-cta-note">LINE登録がまだの方は、まず特典の受け取りから。登録後にこのご案内が届きます。</p>
     </div>
   </div>
 </section>
