@@ -708,64 +708,6 @@
       font-size: 12px;
     }
 
-    /* ── ステップ配信バナー ───────────────────────────────── */
-    .step-section { padding: 100px 0; }
-    .step-header { text-align: center; margin-bottom: 56px; }
-
-    .step-flow {
-      display: flex;
-      gap: 0;
-      max-width: 900px;
-      margin-inline: auto;
-    }
-
-    .step-item {
-      flex: 1;
-      text-align: center;
-      position: relative;
-    }
-    .step-item:not(:last-child)::after {
-      content: '→';
-      position: absolute;
-      right: -12px;
-      top: 32px;
-      color: var(--rose-lt);
-      font-size: 20px;
-      z-index: 1;
-    }
-
-    .step-circle {
-      width: 64px; height: 64px;
-      background: var(--cream2);
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      border: 2px solid var(--cream3);
-    }
-    .step-day {
-      font-size: 9px;
-      color: var(--rose);
-      font-weight: 700;
-      letter-spacing: .1em;
-    }
-    .step-num {
-      font-family: var(--ff-serif);
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--brown);
-      line-height: 1;
-    }
-    .step-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--brown);
-      margin-bottom: 8px;
-    }
-    .step-desc { font-size: 12px; color: var(--gray); line-height: 1.6; }
-
     /* ── レスポンシブ ─────────────────────────────────────── */
     @media (max-width: 900px) {
       .nav-links { display: none; }
@@ -798,8 +740,6 @@
       .reasons-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; gap: 32px; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-      .step-flow { flex-direction: column; gap: 32px; max-width: 300px; }
-      .step-item:not(:last-child)::after { display: none; }
     }
 
     @media (max-width: 600px) {
@@ -1069,58 +1009,6 @@
       LINEで受け取る（無料）
     </a>
     <p class="line-note">登録後、しつこい営業はありません。いつでもブロックできます。</p>
-  </div>
-</section>
-
-<!-- ── 5日間ステップ配信 ────────────────────────────────────────── -->
-<section class="step-section section-alt">
-  <div class="container">
-    <div class="step-header">
-      <div class="section-label">Step Mail</div>
-      <h2 class="section-title">登録後5日間、<br>役立つ情報をお届けします</h2>
-    </div>
-    <div class="step-flow">
-      <div class="step-item">
-        <div class="step-circle">
-          <div class="step-day">DAY</div>
-          <div class="step-num">1</div>
-        </div>
-        <div class="step-title">共感</div>
-        <div class="step-desc">実は、こんな状況の方がほとんどです</div>
-      </div>
-      <div class="step-item">
-        <div class="step-circle">
-          <div class="step-day">DAY</div>
-          <div class="step-num">2</div>
-        </div>
-        <div class="step-title">知識</div>
-        <div class="step-desc">知らないと損する相続のルール3つ</div>
-      </div>
-      <div class="step-item">
-        <div class="step-circle">
-          <div class="step-day">DAY</div>
-          <div class="step-num">3</div>
-        </div>
-        <div class="step-title">感情</div>
-        <div class="step-desc">頑張っているあなたへ</div>
-      </div>
-      <div class="step-item">
-        <div class="step-circle">
-          <div class="step-day">DAY</div>
-          <div class="step-num">4</div>
-        </div>
-        <div class="step-title">信頼</div>
-        <div class="step-desc">実際にどんな方が来られているか</div>
-      </div>
-      <div class="step-item">
-        <div class="step-circle">
-          <div class="step-day">DAY</div>
-          <div class="step-num">5</div>
-        </div>
-        <div class="step-title">オファー</div>
-        <div class="step-desc">無料オンライン相談のご案内</div>
-      </div>
-    </div>
   </div>
 </section>
 
