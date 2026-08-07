@@ -258,36 +258,50 @@
       max-width: 380px;
       width: 100%;
     }
-    .hero-card-quote {
+    .hero-card-title {
       font-family: var(--ff-serif);
-      font-size: 17px;
-      line-height: 1.8;
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.7;
       color: var(--brown);
-      margin-bottom: 24px;
-      padding-bottom: 24px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
       border-bottom: 1px solid var(--cream2);
     }
-    .hero-card-quote::before {
-      content: '「';
-      color: var(--rose);
-      font-size: 28px;
-      font-weight: 600;
-      line-height: 1;
-      display: block;
-      margin-bottom: 8px;
+    .hero-card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
-    .hero-card-meta {
+    .hero-card-list li {
+      position: relative;
+      padding-left: 28px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--brown2);
+    }
+    .hero-card-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--rose);
+      font-weight: 700;
+    }
+    .hero-card-foot {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--cream2);
+      font-size: 13px;
+      color: var(--gray);
+      transition: color .2s;
     }
-    .hero-card-avatar {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, var(--rose-lt), var(--sage-lt));
-      border-radius: 50%;
-    }
-    .hero-card-name { font-size: 13px; color: var(--gray); }
-    .hero-card-name strong { display: block; color: var(--brown2); font-size: 14px; }
+    .hero-card-foot:hover { color: var(--rose); }
+    .hero-card-foot-icon { font-size: 15px; }
 
     .hero-deco {
       position: absolute;
@@ -777,16 +791,17 @@
     <div class="hero-deco hero-deco-1"></div>
     <div class="hero-deco hero-deco-2"></div>
     <div class="hero-card">
-      <div class="hero-card-quote">
-        一人でやろうとしたら、途中で泣きそうになって。あゆみデザインに相談したら、気づいたら全部終わっていました。
-      </div>
-      <div class="hero-card-meta">
-        <div class="hero-card-avatar"></div>
-        <div class="hero-card-name">
-          <strong>M.K さん（45歳）</strong>
-          相続手続きをご依頼
-        </div>
-      </div>
+      <div class="hero-card-title">こんなこと、<br>まるごとお任せください</div>
+      <ul class="hero-card-list">
+        <li>相続の手続き・書類作成</li>
+        <li>終活・エンディングノート</li>
+        <li>介護にまつわる手続き</li>
+        <li>デジタル終活（スマホ・サブスク）</li>
+      </ul>
+      <a href="#line" class="hero-card-foot">
+        <span class="hero-card-foot-icon">💬</span>
+        まずはLINEでお気軽に
+      </a>
     </div>
   </div>
 </section>
